@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Weather</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+  </head>
+
+  <body>
+    <div id="new-city-weather">
+      <input type="text" id="new-city" placeholder="city" />
+      <button id="show-city">Search City</button>
+    </div>
+
+    <div id="cities"></div>
+
+    <script id="city-template" type="text/x-handlebars-template">
+      <div class="city-weather">
+        <span class="add-city">Add</span>
+        <h3 class="name">{{name}}</h3>
+        <p class="temperature"><span
+            class="temp-number"
+          >{{temperature}}</span><span>&#8451;</span></p>
+        <img src={{conditionPic}} />
+        <p class="condition">{{condition}}</p>
+      </div>
+    </script>
+
+    <script id="cities-template" type="text/x-handlebars-template">
+      {{#each citiesWeather}}
+        <div class="city-weather">
+          <span class="remove-city">Remove</span>
+          <h3 class="name">{{name}}</h3>
+          <p class="temp"><span class="temp-number">{{temperature}}</span><span
+            >&#8451;</span></p>
+          <img src={{conditionPic}} />
+          <p class="description">{{condition}}</p>
+        </div>
+      {{/each}}
+    </script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="./handlebars/dist/handlebars.js"></script>
+    <script src="Model.js"></script>
+    <script src="Renderer.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
